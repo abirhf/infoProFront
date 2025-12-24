@@ -1,0 +1,14 @@
+<div class="container">
+  <h2>Détails de la pièce</h2>
+
+  <div *ngIf="piece">
+    <p><strong>Nom :</strong> {{ piece.nom }}</p>
+    <p><strong>Référence :</strong> {{ piece.reference }}</p>
+    <p><strong>Description :</strong> {{ piece.description }}</p>
+    <p><strong>Prix :</strong> {{ piece.prix }} TND</p>
+  </div>
+
+  <div class="back-button">
+    <a routerLink="/pieces/list">← Retour à la liste</a>
+  </div>
+</div>

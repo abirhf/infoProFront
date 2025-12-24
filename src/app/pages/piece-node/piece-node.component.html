@@ -1,0 +1,10 @@
+
+
+<li>
+  🔧 {{ piece.reference }} - {{ piece.nom }}
+  <ul *ngIf="piece.enfants.length > 0">
+    <ng-container *ngFor="let child of piece.enfants">
+      <app-piece-node [piece]="child"></app-piece-node>
+    </ng-container>
+  </ul>
+</li>

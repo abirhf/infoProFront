@@ -1,0 +1,28 @@
+<div class="container">
+  <h2 *ngIf="!isEditMode">Ajouter un client</h2>
+  <h2 *ngIf="isEditMode">Modifier le client</h2>
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <label>Nom:</label>
+    <input formControlName="nom" />
+
+    <label>Prénom:</label>
+    <input formControlName="prenom" />
+
+    <label>Email:</label>
+    <input formControlName="email" />
+
+    <label>Téléphone:</label>
+    <input formControlName="telephone" />
+
+    <label>Adresse:</label>
+    <input formControlName="adresse" />
+
+    <label>Type:</label>
+    <input formControlName="type" />
+
+    <button type="submit">
+      {{ isEditMode ? 'Mettre à jour' : 'Enregistrer' }}
+    </button>
+  </form>
+</div>

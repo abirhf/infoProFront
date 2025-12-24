@@ -1,0 +1,21 @@
+<div class="container">
+  <h2>Liste des catégories</h2>
+
+  <div class="add-button">
+    <a routerLink="/categories/new">+ Ajouter une catégorie</a>
+  </div>
+
+  <input type="text" [(ngModel)]="searchTerm" placeholder="Rechercher une catégorie..." />
+
+  <ul>
+    <li *ngFor="let categorie of filteredCategories()">
+      <div class="categorie-item">
+        <span>{{ categorie.nom }} (ID: {{ categorie.id }})</span>
+        <div class="actions">
+          <a [routerLink]="['/categories/edit', categorie.id]">Modifier</a>
+          <button (click)="confirmDelete(categorie.id)">Supprimer</button>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>
