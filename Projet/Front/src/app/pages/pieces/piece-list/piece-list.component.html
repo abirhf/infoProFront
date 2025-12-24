@@ -1,0 +1,27 @@
+<div class="container">
+  <h2>Liste des pièces</h2>
+
+  <!-- Bouton Ajouter -->
+  <div class="add-button">
+    <a routerLink="/pieces/new">+ Ajouter une pièce</a>
+  </div>
+
+  <!-- Champ de recherche -->
+  <input type="text" [(ngModel)]="searchTerm" placeholder="Rechercher une pièce..." />
+
+  <!-- Liste des pièces -->
+  <ul>
+    <li *ngFor="let piece of filteredPieces()">
+      <div class="piece-item">
+        <span>
+          {{ piece.nom }} ({{ piece.reference }}) - {{ piece.prix }} TND
+        </span>
+        <div class="actions">
+          <a [routerLink]="['/pieces', piece.id]">Détails</a>
+          <a [routerLink]="['/pieces/edit', piece.id]">Modifier</a>
+          <button *ngIf="piece.id !== undefined" (click)="confirmDelete(piece.id!)">Supprimer</button>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>

@@ -1,0 +1,16 @@
+<div class="container">
+  <h2>Détails du client</h2>
+
+  <div *ngIf="client">
+    <p><strong>Nom :</strong> {{ client.nom }}</p>
+    <p><strong>Prénom :</strong> {{ client.prenom }}</p>
+    <p><strong>Email :</strong> {{ client.email }}</p>
+    <p><strong>Téléphone :</strong> {{ client.telephone }}</p>
+    <p><strong>Adresse :</strong> {{ client.adresse }}</p>
+    <p><strong>Type :</strong> {{ client.type }}</p>
+  </div>
+
+  <div class="back-button">
+    <a routerLink="/clients/list">← Retour à la liste</a>
+  </div>
+</div>

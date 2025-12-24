@@ -1,0 +1,27 @@
+<div class="container">
+  <h2>Liste des clients</h2>
+
+  <!-- Bouton Ajouter -->
+  <div class="add-button">
+    <a routerLink="/clients/new">+ Ajouter un client</a>
+  </div>
+
+  <!-- Champ de recherche -->
+  <input type="text" [(ngModel)]="searchTerm" placeholder="Rechercher un client..." />
+
+  <!-- Liste des clients -->
+  <ul>
+    <li *ngFor="let client of filteredClients()">
+      <div class="client-item">
+        <span>
+          {{ client.nom }} {{ client.prenom }} - {{ client.email }}
+        </span>
+        <div class="actions">
+          <a [routerLink]="['/clients', client.id]">Détails</a>
+          <a [routerLink]="['/clients/edit', client.id]">Modifier</a>
+          <button *ngIf="client.id !== undefined" (click)="confirmDelete(client.id!)">Supprimer</button>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>
